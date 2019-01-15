@@ -22,13 +22,16 @@
           <property name="walArchivePath" value="/wal/archive"/>
      </bean>
    </property>
-   <property name="discoverySpi">
+  <property name="discoverySpi">
     <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
       <property name="ipFinder">
-        <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.kubernetes.TcpDiscoveryKubernetesIpFinder"/>
+         <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.kubernetes.TcpDiscoveryKubernetesIpFinder">
+           <property name="namespace" value="ignite"/>
+         </bean>
       </property>
     </bean>
   </property>
+
    
 </bean>
 </beans>
